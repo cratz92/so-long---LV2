@@ -6,7 +6,7 @@
 /*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:51:29 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 05:32:40 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 07:59:52 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <stdio.h>
 # include <fcntl.h>
-# include "../libs/libft/libft.h"
 # include "../libs/minilibx/mlx.h"
+# include "../libs/ft_printf/includes/ft_printf.h"
 
 /* INFO: bckgnd = background | w = width | h = height */
 
@@ -54,11 +54,30 @@ typedef	struct	s_game
 	int	end_game;
 }	t_game;
 
+# define Key_A	97
+# define Key_W	119
+# define Key_S	115
+# define Key_D	100
+
+# define Key_Arrow_Left	65361
+# define Key_Arrow_Up	65362
+# define Key_Arrow_Down	65364
+# define Key_Arrow_Right	65363
+
+# define Key_ESQ	65307
+
 
 void	render_img(t_game *game, void *img, int x, int y);
-void	render_map(t_game *game);
+int	render_map(t_game *game);
 void	start_game(t_game *game);
 char	**read_map(char *path);
 int	map_checker(t_game *game);
+void	gameplay(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	move_down(t_game *game);
+void	move_up(t_game *game);
+void	release_memory(char **map);
+int	exit_game(t_game *game);
 
 #endif

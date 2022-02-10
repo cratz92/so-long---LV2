@@ -1,3 +1,9 @@
 [submodule "libs/libft"]
 	path = libs/libft
 	url = https://github.com/cratz92/libft---LV0
+[submodule "libs/gnl"]
+	path = libs/gnl
+	url = https://github.com/cratz92/get_next_line---LV1.git
+[submodule "libs/ft_printf"]
+	path = libs/ft_printf
+	url = https://github.com/cratz92/ft_printf---LV1.git

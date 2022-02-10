@@ -34,7 +34,7 @@ static void	render_exit_img(t_game *game, int x, int y)
 	render_img(game, game->img_hooks->img_exit, x, y);
 }
 
-void	render_map(t_game *game)
+int	render_map(t_game *game)
 {
 	int	x;
 	int	y;
@@ -59,4 +59,5 @@ void	render_map(t_game *game)
 		}
 		y++;
 	}
+	return (0);
 }
