@@ -6,7 +6,7 @@
 /*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:51:29 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 01:43:05 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 04:11:51 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdio.h>
 # include <fcntl.h>
+# include "../libs/libft/libft.h"
+# include "../libs/minilibx/mlx.h"
 
 /* INFO: bckgnd = background | w = width | h = height */
 
