@@ -6,7 +6,7 @@
 /*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:48:36 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 04:11:37 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 04:35:08 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 		game.map = read_map(argv[1]);
 		if (map_checker(&game) && format_checker(argv[1]))
 		{
-			game_init(&game);
+			start_game(&game);
 			gameplay(&game);
 			mlx_loop(game.mlx)
 		}

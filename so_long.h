@@ -6,7 +6,7 @@
 /*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:51:29 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 04:11:51 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 05:19:13 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_images
 	void	*img_bckgnd;
 	void	*img_wall;
 	void	*img_player;
-	void	*img_colect;
+	void	*img_collect;
 	void	*img_exit;
 }	t_images;
 
@@ -50,14 +50,14 @@ typedef	struct	s_game
 	int	n_player;
 	int	n_exit;
 	t_coords	*player_c;
-	int	moves;
+	int	moves_count;
 	int	end_game;
 }	t_game;
 
 
 
-
-
+void	render_map(t_game *game);
+void	start_game(t_game *game);
 char	**read_map(char *path);
 int	map_checker(t_game *game);
 
