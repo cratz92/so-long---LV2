@@ -6,7 +6,7 @@
 /*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:51:29 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 05:19:13 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 05:32:40 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef	struct	s_game
 }	t_game;
 
 
-
+void	render_img(t_game *game, void *img, int x, int y);
 void	render_map(t_game *game);
 void	start_game(t_game *game);
 char	**read_map(char *path);
