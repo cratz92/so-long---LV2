@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 19:51:29 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/09 22:26:15 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/10 01:43:05 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	SO_LONG_H
 # define SO_LONG_H
+
+# include <stdio.h>
+# include <fcntl.h>
 
 /* INFO: bckgnd = background | w = width | h = height */
 
