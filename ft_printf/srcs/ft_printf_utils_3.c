@@ -6,11 +6,11 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:27:18 by cbrito-l          #+#    #+#             */
-/*   Updated: 2021/08/13 15:27:22 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:40:27 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_zero_i_d(t_flags fl, int size, int *len)
 {
@@ -43,7 +43,7 @@ void	print_width_zero_i_d(t_flags fl, int size, int *len)
 		(*len)++;
 	}
 	check_for_plus_and_space_i_d(fl, len);
-	ft_putstr_len(fl.strNum, len);
+	ft_putstr_len(fl.str_num, len);
 }
 
 void	print_precision_zero_i_d(t_flags fl, int size, int *len)
@@ -55,7 +55,7 @@ void	print_precision_zero_i_d(t_flags fl, int size, int *len)
 		(*len)++;
 	}
 	check_for_plus_and_space_i_d(fl, len);
-	ft_putstr_len(fl.strNum, len);
+	ft_putstr_len(fl.str_num, len);
 }
 
 void	print_zero_number_space_i_d(t_flags fl, int size, int *len, int *i)
@@ -89,6 +89,6 @@ void	print_neg_zero_variations_i_d(t_flags fl, int size, int *len)
 	{
 		ft_putchar_len('-', len);
 		print_zero_i_d(fl, size, len);
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 	}
 }

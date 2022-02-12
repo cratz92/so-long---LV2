@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbrito-l <cbrito-l@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 20:33:52 by cbrito-l          #+#    #+#             */
-/*   Updated: 2022/02/10 04:11:47 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 20:29:47 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 static int	is_retangular(char **map)
 {
@@ -19,7 +19,7 @@ static int	is_retangular(char **map)
 	i = 1;
 	if (!map)
 		return (0);
-	while (map[i] != '\0')
+	while (map[i] != NULL)
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[0]))
 			return (0);
@@ -36,7 +36,7 @@ static int	is_wall(char **map)
 
 	i = 0;
 	j = 0;
-	while (map[i] != '\0')
+	while (map[i] != NULL)
 		i++;
 	while (map[0][j] != '\0' && map[i - 1][j] != '\0')
 	{
@@ -46,7 +46,7 @@ static int	is_wall(char **map)
 	}
 	i = 1;
 	len = ft_strlen(map[i]);
-	while (map[i] != '\0')
+	while (map[i] != NULL)
 	{
 		if (map[i][0] != '1' || map[i][len - 1] != '1')
 			return (0);
@@ -64,7 +64,7 @@ static int	objects_count(t_game *game)
 	game->n_player = 0;
 	game->n_exit = 0;
 	i = 0;
-	while (game->map[i] != '\0')
+	while (game->map[i] != NULL)
 	{
 		j = 0;
 		while (game->map[i][j] != '\0')
@@ -90,7 +90,7 @@ static int	is_valid(char **map)
 	int	j;
 
 	i = 0;
-	while (map[i] != '\0')
+	while (map[i] != NULL)
 	{
 		j = 0;
 		while (map[i][j] != '\0')

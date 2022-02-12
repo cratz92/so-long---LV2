@@ -6,11 +6,11 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 14:45:08 by joeduard          #+#    #+#             */
-/*   Updated: 2021/08/13 15:35:42 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:50:21 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	handle_types(const char c, int *len, va_list args, t_flags fl)
 {
@@ -25,7 +25,7 @@ int	handle_types(const char c, int *len, va_list args, t_flags fl)
 	if (c == 'p')
 		print_p(fl, args, len, c);
 	if (c == 'x' || c == 'X')
-		print_xX(fl, args, len, c);
+		print_xx(fl, args, len, c);
 	if (c == '%')
 		ft_putstr_len("%", len);
 	if (ft_strchr(TYPES, c) == 0)

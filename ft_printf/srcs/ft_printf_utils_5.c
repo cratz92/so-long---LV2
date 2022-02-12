@@ -6,16 +6,16 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:27:50 by cbrito-l          #+#    #+#             */
-/*   Updated: 2021/08/13 15:27:52 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:42:05 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_neg_number_i_d(t_flags fl, int *len)
 {
 	ft_putchar_len('-', len);
-	ft_putstr_len(fl.strNum, len);
+	ft_putstr_len(fl.str_num, len);
 }
 
 int	ft_ulen(unsigned int num)
@@ -64,11 +64,11 @@ void	print_zero_string_u(t_flags fl, int *len, int size)
 			fl.width--;
 			(*len)++;
 		}
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 	}
 	else if (fl.minus == 1)
 	{
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 		print_space(fl, size, len);
 	}
 }
@@ -81,5 +81,5 @@ void	print_zero_precision_u(t_flags fl, int size, int *len)
 		fl.precision--;
 		(*len)++;
 	}
-	ft_putstr_len(fl.strNum, len);
+	ft_putstr_len(fl.str_num, len);
 }

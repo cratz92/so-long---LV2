@@ -6,11 +6,11 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:29:25 by cbrito-l          #+#    #+#             */
-/*   Updated: 2021/08/13 15:29:45 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:15:58 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_s(char *c, int *len, t_flags fl)
 {

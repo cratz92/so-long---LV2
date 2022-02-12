@@ -6,11 +6,11 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 15:29:57 by cbrito-l          #+#    #+#             */
-/*   Updated: 2021/08/13 15:29:59 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 19:50:26 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_u(t_flags fl, va_list args, int *len)
 {
@@ -20,8 +20,8 @@ void	print_u(t_flags fl, va_list args, int *len)
 
 	count = 0;
 	number = va_arg(args, unsigned int);
-	fl.strNum = ft_uitoa(number);
-	size = (int)ft_strlen(fl.strNum);
+	fl.str_num = ft_uitoa(number);
+	size = (int)ft_strlen(fl.str_num);
 	if (number == 0 && fl.dot == 1 && fl.precision == 0)
 		print_zero_corner_cases(fl, size, len);
 	else if (fl.zero == 1 && fl.width > size && fl.precision == 0)
@@ -31,8 +31,8 @@ void	print_u(t_flags fl, va_list args, int *len)
 	else if (fl.precision > size)
 		print_corner_cases_u(fl, size, len, &count);
 	else
-		ft_putstr_len(fl.strNum, len);
-	free(fl.strNum);
+		ft_putstr_len(fl.str_num, len);
+	free(fl.str_num);
 }
 
 void	print_zero_corner_cases(t_flags fl, int size, int *len)
@@ -54,7 +54,7 @@ void	print_zero_corner_cases(t_flags fl, int size, int *len)
 			fl.precision--;
 			(*len)++;
 		}
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 	}	
 	else
 		write(1, " ", 0);
@@ -118,7 +118,7 @@ void	print_width_bigger_than_size_u(t_flags fl, int *len)
 	else if (fl.zero == 0 || fl.minus == 1)
 	{
 		print_width_space_u(fl, len);
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 	}
 	else
 	{
@@ -128,6 +128,6 @@ void	print_width_bigger_than_size_u(t_flags fl, int *len)
 			fl.width--;
 			(*len)++;
 		}
-		ft_putstr_len(fl.strNum, len);
+		ft_putstr_len(fl.str_num, len);
 	}
 }

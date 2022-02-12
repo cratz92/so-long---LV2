@@ -6,7 +6,7 @@
 #    By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/13 14:40:03 by cbrito-l          #+#    #+#              #
-#    Updated: 2021/08/13 15:26:31 by cbrito-l         ###   ########.fr        #
+#    Updated: 2022/02/12 17:12:48 by cbrito-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME := libftprintf.a
 
 SRCS := $(wildcard srcs/*.c)
 OBJS := $(subst .c,.o,$(SRCS))
-CFLAGS := -Wall -Wextra -Werror -Iincludes -Ilibft
+CFLAGS := -Wall -Wextra -Werror -Ilibft
 CC := gcc
 
 all: $(NAME)

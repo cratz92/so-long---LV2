@@ -10,51 +10,75 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME := so_long
+# -*- Definitions of variables -*-
 
-SRCS := $(wildcard srcs/*.c)
-OBJS := $(subst .c,.o,$(SRCS))
-CFLAGS := -Wall -Wextra -Werror -Iincludes -Ift_printf -Iminilibx
-MLXFLAGS := -L. -lXext -L. -lX11
-CC := gcc
+NAME	= so_long
 
+MINILIBDR	= minilibx_opengl/
+OBJDR	= obj/
+FTPRINTDR	= ft_printf/
 
-all: $(NAME)
+MINILIB = libmlx.dylib
+SOLONGLIB	= libso_long.a
+HEADER	= includes/so_long.h
 
-$(NAME): ft_printf/libftprintf.a minilibx/libmlx.a ${OBJS}
-		cp ft_printf/libftprintf.a minilibx/libmlx.a $@
-		ar rcs $@ ${OBJS}
+GAMESRC	= so_long.c
+SRCS	= ${shell find src -type f -name "*.c"}
+OBJS	= ${SRCS:src/%.c=obj/%.o}
 
-./libs/ft_printf/libftprintf.a:
-		make -C ft_printf
+CC		= gcc
+RM		= rm -f
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address
 
-./libs/minilibx/libmlx.a:
-		make -C minilibx
+# -*- The Rules -*-
 
-SERVER   = server
-CLIENT   = client
-CC	     = gcc
-FLAGS    = -Wall -Werror -Wextra
-LIBS	 = -L./libft -lft
-LIBFT	 = libft.a
+#	Implicit rules
 
-all : $(LIBFT) $(SERVER) $(CLIENT)
+%.o: %.c
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
-$(LIBFT) : 
-	@make -C libft
+obj/%.o: src/%.c
+			@echo "Compiling src source object: $@"
+			@$(CC) $(CFLAGS) -c $< -o $@
 
-$(SERVER) : server.o error.o includes/minitalk.h
-	@$(CC) server.o error.o $(LIBS) -o $@
-	@printf "\e[38;5;226m./$@ successfully build🥑\e[0m\n"
+#	Active rules -g ${wildcard src/*.c} 
+
+all:		$(NAME)
+
+libx:
+			@make --silent -C $(MINILIBDR)
+			@make --silent -C $(FTPRINTDR)
+
+$(NAME):	libx $(OBJDR) $(OBJS) $(HEADER)
+			@ar rcs $(SOLONGLIB) $(OBJS)
+			@echo "Compiling $(NAME)"
+			@$(CC) $(CFLAGS) $(GAMESRC) $(SOLONGLIB) -L$(MINILIBDR) -lmlx -framework OpenGL -framework AppKit -L$(FTPRINTDR) -lftprintf -o $(NAME)
+			#--------------------------------#
+			@echo "Finished compiling $(NAME)"
+
+bonus:		re $(NAME)
+
+$(OBJDR):
+			@mkdir -p $(OBJDR)
+
+$(LIBOBJDR):
+			@mkdir -p $(LIBOBJDR)
+
+#	Cleaning rules
 
 clean:
-		rm -f srcs/*.o
-		make -C libs/ft_printf libs/minilibx $@
+			@echo Removing all object files
+			@rm -rf ${OBJDR}
+			@rm -rf ${LIBOBJDR}
 
-fclean: clean
-		rm -f ${NAME}
-		make -C libs/ft_printf libs/minilibx $@
+fclean:		clean
+			@echo "Removing $(NAME) and $(SOLONGLIB)"
+			@${RM} ${NAME} ${MINILIB} ${SOLONGLIB}
+			@echo "Removing opengl library"
+			@make -C ${MINILIBDR} clean
+			@echo "Removing ft_printf library"
+			@make -C ${FTPRINTDR} fclean
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all bonus fclean clean re ./libs/ft_printf/libftprintf.a ./libs/minilibx/libmlx.a
+.PHONY:		all clean fclean re

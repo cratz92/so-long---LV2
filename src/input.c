@@ -10,35 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 static void	input_response(int keycode, t_game *game)
 {
-	if (keycode == Key_W || keycode == Key_Arrow_Up)
+	if (keycode == KEY_W)
 	{
-		game->player_c->y -= 1;
+		game->player_y -= 1;
+		sprite_animation('u', game);
 		move_up(game);
 	}
-	else if (keycode == Key_S || keycode == Key_Arrow_Down)
+	else if (keycode == KEY_S)
 	{
-		game->player_c->y += 1;
+		game->player_y += 1;
+		sprite_animation('d', game);
 		move_down(game);
 	}
-	else if (keycode == Key_D || keycode == Key_Arrow_Right)
+	else if (keycode == KEY_D)
 	{
-		game->player_c->x += 1;
+		game->player_x += 1;
+		sprite_animation('r', game);
 		move_right(game);
 	}
-	else if (keycode == Key_A || keycode == Key_Arrow_Left)
+	else if (keycode == KEY_A)
 	{
-		game->player_c->x -= 1;
+		game->player_x -= 1;
+		sprite_animation('l', game);
 		move_left(game);
 	}
 }
 
 static int	keypress(int keycode, t_game *game)
 {
-	if (keycode == Key_ESQ)
+	if (keycode == KEY_ESQ || keycode == KEY_Q)
 		exit_game(game);
 	else if (!game->end_game)
 	{

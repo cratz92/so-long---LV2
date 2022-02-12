@@ -6,11 +6,11 @@
 /*   By: cbrito-l <cbrito-l@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 15:06:17 by joeduard          #+#    #+#             */
-/*   Updated: 2021/08/13 15:04:10 by cbrito-l         ###   ########.fr       */
+/*   Updated: 2022/02/12 17:15:30 by cbrito-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	ft_putchar_len(char c, int *len)
 {
